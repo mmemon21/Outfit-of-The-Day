@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OOTD</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id = container>
+    <div id = "content">
+  <h1 id = "head"><b>OUTFIT OF THE DAY</b></h1><br>
+  <form action = "/results" id = "search" method="POST">
+      <input type="text" placeholder= "Enter city.." class="form-control" name="homepage_city"><br>
+      <input type="range" min="0" max="1000" value="50" id="priceRange" name="homepage_price">
+      <p>Maximum Price: <span id="price"></span>$</p>
+    	<button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+  </div>
+  
+  <script>
+//idea from w3schools
+var slider = document.getElementById("priceRange");
+var output = document.getElementById("price");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+</body>
+</html>

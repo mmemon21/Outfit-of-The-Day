@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+<div align="center">
+
+<script>
+// Use result_arr from API data -->	
+var city = "{{inputted_city}}";
+var temp = "{{inputted_temp}}";
+var type = "{{inputted_weather}}";
+</script>
+
+<p id="demo"></p>
+
+
+<h1>
+<script>
+document.getElementById("demo").innerHTML = city; 
+</script>
+</h1>
+
+
+<div align="center">
+
+<script>
+if (type == "snowy"){
+    document.write("<img src='https://cdn0.iconfinder.com/data/icons/snowflakes-snow/617/Snowflakes_snow-10-512.png'>")
+}
+else if(type == "clear"){
+	document.write("<img src='https://cdn4.iconfinder.com/data/icons/sun-11/50/20-512.png'>")  
+} 
+
+else if(type == "rainy"){
+	document.write("<img src='https://cdn2.iconfinder.com/data/icons/weather-414/24/cloud_rain-512.png'>")
+}
+
+else if(type == "cloudy"){
+	document.write("<img src='https://icons-for-free.com/iconfiles/png/512/cloudy+foggy+weather+icon-1320196574869514194.png'>")
+}
+else {
+	document.write("<img src='https://cdn4.iconfinder.com/data/icons/sun-11/50/20-512.png'>")
+}
+
+</script>
+
+<p id="demo2"></p>
+<script>
+document.getElementById("demo2").innerHTML = temp; 
+</script> &#8457
+
+<br>
+<font size="3">We suggest the best outfits!</font>
+</div> 
+
+
+<!-- Clothing data to be added by Won)-->
+
+<p> 
+
+<!-- hat-->
+<a href = "{{url_for('article_of_clothing', output = outfit_data_arr[0])}}">
+<img src="{{output_hat}}" width="100" height="100">
+</a>  
+<!-- outerwear -->
+<a href = "{{url_for('article_of_clothing', output = outfit_data_arr[1])}}">
+<img src="{{output_outerwear}}" width="100" height="100">
+</a>
+<!-- shirt/top -->
+<a href = "{{url_for('article_of_clothing', output = outfit_data_arr[2])}}">
+<img src="{{output_top}}" width="100" height="100">
+</a>
+<!-- pants -->
+<a href = "{{url_for('article_of_clothing', output = outfit_data_arr[3])}}">
+<img src="{{output_pants}}" width="100" height="100">
+</a>
+<!-- shoes -->
+<a href = "{{url_for('article_of_clothing', output = outfit_data_arr[4])}}">
+<img src="{{output_shoes}}" width="100" height="100">
+</a>
+<!-- accessories -->
+<a href = "{{url_for('article_of_clothing', output = outfit_data_arr[5])}}">
+<img src="{{output_accessories}}" width="100" height="100">
+</a>
+</div>
+</p>
+
+
+
+</body>
+</html>
